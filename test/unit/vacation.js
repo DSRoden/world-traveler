@@ -24,8 +24,8 @@ describe('Vacation', function(){
 
   describe('constructor', function(){
     it('should create a new vacation object', function(){
-      var o = {name: 'Thailand', start:'01/02/2003', end:'02/04/2005', lat:40, lng:42};
-      var v = new Vacation(o);
+      var o = {name: 'Thailand', start:'01/02/2003', end:'02/04/2005', lat:40, lng:42},
+          v = new Vacation(o);
       expect(v).to.be.instanceof(Vacation);
       console.log(v.start);
     });
@@ -45,6 +45,15 @@ describe('Vacation', function(){
       Vacation.create({name: 'Thailand', start:'01/01/2001', end:'01/02/2002', lat:40, lng:42}, function(err, vacation){
         expect(vacation).to.be.instanceof(Vacation);
         expect(vacation.name).to.equal('Thailand');
+        done();
+      });
+    });
+  });
+
+  describe('.findById', function(){
+    it('should find a vacation by its id', function(done){
+      Vacation.findById('000000000000000000000001', function(o){
+        expect(o.name).to.equal('New York, New York');
         done();
       });
     });

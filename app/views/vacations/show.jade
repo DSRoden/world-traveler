@@ -1,0 +1,47 @@
+extends ../shared/template
+block content
+  .row
+    .col-xs-12.col-md-6
+      #map
+    .col-xs-12.col-md-6
+      .row
+        .col-xs-12
+          #tableContainer
+            table.table
+              thead
+                th Location
+                th Start Date
+                th End Date
+                th Photos
+              tbody
+                tr#data(data-name=vacation.name, data-lat=vacation.lat, data-lng=vacation.lng)
+                  td=vacation.name
+                  td=vacation.start
+                  td=vacation.end
+                  td=vacation.photos.length
+        .row
+          .col-xs-12
+            form#addImage(method='post', action='/vacations/#{vacation._id}/photos/download')
+              .form-group
+                label(for='url') Add Image
+                input.form-control#url(name='url', type='text', placeholder='url')
+              button.btn.btn-success(type='submit') Add Photo
+
+        .row
+          .col-xs-12
+            form#uploadImage(method='post', action='/vacations/#{vacation._id}/photos/upload', enctype='multipart/form-data')
+              .form-group
+                label(for='photos') Photos
+                input.form-control#url(name='photos', type='file', multiple=true)
+              button.btn.btn-success(type='submit') Add Photos
+
+      .row
+        .col-xs-12
+          .photos
+            each photo in vacation.photos
+              .photo(style= 'background-image: url("#{photo}");')
+
+
+block scripts
+  script(src='/js/user/show.js')
+

@@ -7,7 +7,7 @@
 
   $(document).ready(function(){
    $('form').submit(addVacation);
-  
+
   });
 
   function addVacation(e){
