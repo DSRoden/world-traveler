@@ -1,12 +1,1 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-
-*{
-  font-family: 'Open Sans', sans-serif;
-  font-size: 13px;
-}
-
-body{
-  background-image: url(/img/node.png);
-  background-size: cover;
-}
-
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);nav{margin:20px;border-color:#009abd}#map{height:700px;width:1000px;margin:0 auto;border-style:solid;border-width:10px;border-color:#009abd;padding:40px}*{font-family:'Open Sans',sans-serif;font-size:13px}.background{background-image:url('/img/P1030508.JPG');background-size:100%}.backgroundlow{background-color:#009abd}form{padding:5px}table{margin:20px auto}table thead{background-color:white}
